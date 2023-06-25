@@ -4,6 +4,7 @@
     const bodyParser = require('body-parser')
     const app = express()
     const admin = require('./rotas/admin')
+    const path = require('path')
     //const mongoose = require('mongoose)
 
 //Configuracoes
@@ -14,6 +15,9 @@
       /*  app.engine('handlebars', handlebars({defaultLayout: 'main'}))
         app.set('view engine', 'handlebars') */
     //Mongoose
+
+    //public
+        app.use(express.static(path.join(__dirname,'public')))
 
 //Rotas
         app.use('/admin', admin)

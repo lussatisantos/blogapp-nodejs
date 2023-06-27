@@ -9,6 +9,11 @@
             <small> Slug: {{slug}} </small> <br>
             <small> Data de criacao: {{date}} </small> <br>
             <a href="/admin/categorias/edit/{{_id}}"><button class="btn btn-sucess mt-4">Editar a categoria</button></a>
+
+            <form action="/admin/categorias/apagar" method="post">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button type="submit" class="btn btn-danger mt-2"> Apagar categoria</button>
+            </form>
         </div>
     </div>
 {{else}}

@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 const Categoria = new Schema ({
     nome: {
-        type: string,
+        type: String,
         required: true
     },
     slug: {
-        type: string,
+        type: String,
         required: true
     },
     date: {
@@ -16,4 +16,4 @@ const Categoria = new Schema ({
     }
 })
 
-mongoose.model('categorias', Categorias)
+mongoose.model('categorias', Categoria)

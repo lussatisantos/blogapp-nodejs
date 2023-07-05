@@ -101,6 +101,14 @@ router.post('/categorias/apagar', (req, res) => {
 })
 
 router.get ('/postagens', (req, res) => {
+
+    Postagem.find().populate('categoria').sort({data: 'desc'}).then((postagens) => {
+        res.render('admin/postagens', {postagens: postagens})
+    }).catch((err) => {
+        req.flash('error_msg', 'Houve um erro ao lostar as postagens')
+        res.redirect('/admin')
+    })
+
     res.render('admin/postagens')
 })
 
@@ -144,6 +152,10 @@ router.post('/postagens/nova', (req, res) => {
             res.redirect('/admin/postagens')
         })
     }
+})
+
+router.get('/postagens/edit/:id', (req, res) => {
+    res.render('admin/editpostagens')
 })
 
 module.exports = router
